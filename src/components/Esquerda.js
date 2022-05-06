@@ -33,84 +33,66 @@ function Setinha () {
 }
 
 
+const postArr = [{userImg: "assets/img/meowed.svg", user: "meowed", content: "assets/img/gato-telefone.svg", commentImg: "assets/img/respondeai.svg", commentText: "Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>"},{userImg: "assets/img/barked.svg", user: "barked", content: "assets/img/dog.svg", commentImg: "assets/img/adorable_animals.svg", commentText: "Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>"}]
+
 export default function Esquerda () {
-    return (
-        <div class="esquerda">
-          <Stories />
-          <div class="posts">
-            <div class="post">
-              <div class="topo">
-                <div class="usuario">
-                  <img src="assets/img/meowed.svg" />
-                  meowed
-                </div>
-                <div class="acoes">
-                  <ion-icon name="ellipsis-horizontal"></ion-icon>
-                </div>
-              </div>
+  return (
+      <div class="esquerda">
+        <Stories />
+        <Posts /> 
+      </div>
 
-              <div class="conteudo">
-                <img src="assets/img/gato-telefone.svg" />
-              </div>
+  )
+}
 
-              <div class="fundo">
-                <div class="acoes">
-                  <div>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                  </div>
-                  <div>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                  </div>
-                </div>
+function Posts () {
+  return (
+    <div class="posts">
+      {postArr.map (el => <Post user={el.user} userImg={el.userImg} content={el.content} commentImg={el.commentImg} commentText={el.commentText} />)}
+    </div>
+  )
+}
 
-                <div class="curtidas">
-                  <img src="assets/img/respondeai.svg" />
-                  <div class="texto">
-                    Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="post">
-              <div class="topo">
-                <div class="usuario">
-                  <img src="assets/img/barked.svg" />
-                  barked
-                </div>
-                <div class="acoes">
-                  <ion-icon name="ellipsis-horizontal"></ion-icon>
-                </div>
-              </div>
-
-              <div class="conteudo">
-                <img src="assets/img/dog.svg" />
-              </div>
-
-              <div class="fundo">
-                <div class="acoes">
-                  <div>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                  </div>
-                  <div>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                  </div>
-                </div>
-
-                <div class="curtidas">
-                  <img src="assets/img/adorable_animals.svg" />
-                  <div class="texto">
-                    Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
+function Post (props) {
+  return (
+    <div class="post">
+      <div class="topo">
+        <div class="usuario">
+          <img src={props.userImg} />
+          {props.user}
+        </div>
+        <div class="acoes">
+          <ion-icon name="ellipsis-horizontal"></ion-icon>
+        </div>
+      </div>
+      <div class="conteudo">
+        <img src={props.content} />
+      </div>
+      <div class="fundo">
+        <div class="acoes">
+          <div>
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="chatbubble-outline"></ion-icon>
+            <ion-icon name="paper-plane-outline"></ion-icon>
+          </div>
+          <div>
+            <ion-icon name="bookmark-outline"></ion-icon>
           </div>
         </div>
-
-    )
+        <div class="curtidas">
+          <img src={props.commentImg} />
+          <div class="texto">
+            {props.commentText}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
+
+
+
+
+
+
+

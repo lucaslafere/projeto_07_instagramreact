@@ -51,17 +51,23 @@ function IconsMobile () {
     )
 }
 
-export default function Navbar () {
+function Container () {
     return (
-        <div class="navbar">
-            <div class="container">
+        <div class="container">
                 <Logo />
                 <LogoMobile />
                 <InstaMobile />
                 <Search />
                 <Icons />
                 <IconsMobile />
-            </div>
+        </div>
+    )
+}
+
+export default function Navbar () {
+    return (
+        <div class="navbar">
+            <Container />
         </div>
     )
 }
