@@ -1,10 +1,10 @@
-function User () {
+function User (props) {
   return (
     <div class="usuario">
-      <img src="assets/img/catanacomics.svg" />
+      <img src={props.img} />
       <div class="texto">
-      <strong>catanacomics</strong>
-      Catana
+      <strong>{props.user}</strong>
+      {props.subuser}
       </div>
     </div>
   )
@@ -58,7 +58,7 @@ function Copyright () {
 export default function Sidebar () {
     return (
         <div class="sidebar">
-          <User />
+          <User img="assets/img/catanacomics.svg" user="catanacomics" subuser="Catana" />
           <Sugestoes />   
           <Links />
           <Copyright />
