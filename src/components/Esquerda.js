@@ -33,7 +33,7 @@ function Setinha () {
 }
 
 
-const postArr = [{userImg: "assets/img/meowed.svg", user: "meowed", content: "assets/img/gato-telefone.svg", commentImg: "assets/img/respondeai.svg", commentText: "Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>"},{userImg: "assets/img/barked.svg", user: "barked", content: "assets/img/dog.svg", commentImg: "assets/img/adorable_animals.svg", commentText: "Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>"}]
+const postArr = [{userImg: "assets/img/meowed.svg", user: "meowed", content: "assets/img/gato-telefone.svg", commentImg: "assets/img/respondeai.svg", topComment: "respondeai", others: "outras 101.523 pessoas"},{userImg: "assets/img/barked.svg", user: "barked", content: "assets/img/dog.svg", commentImg: "assets/img/adorable_animals.svg", topComment: "adorable_animals", others: "outras 99.159 pessoas"}]
 
 export default function Esquerda () {
   return (
@@ -48,7 +48,7 @@ export default function Esquerda () {
 function Posts () {
   return (
     <div class="posts">
-      {postArr.map (el => <Post user={el.user} userImg={el.userImg} content={el.content} commentImg={el.commentImg} commentText={el.commentText} />)}
+      {postArr.map (el => <Post user={el.user} userImg={el.userImg} content={el.content} commentImg={el.commentImg} topComment={el.topComment} others={el.others} />)}
     </div>
   )
 }
@@ -82,7 +82,7 @@ function Post (props) {
         <div class="curtidas">
           <img src={props.commentImg} />
           <div class="texto">
-            {props.commentText}
+          Curtido por <strong>{props.topComment}</strong> e <strong>{props.others}</strong>
           </div>
         </div>
       </div>
