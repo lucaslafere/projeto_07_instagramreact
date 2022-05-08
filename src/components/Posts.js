@@ -18,14 +18,19 @@ export default function Posts () {
   function Post (props) {
 
     const [icon, setIcon] = React.useState("heart-outline")
+    const [color, setColor] = React.useState("md hydrated")
+    
     function changeIcon () {
         if (icon === "heart-outline") {
             setIcon("heart")
+            setColor("md hydrated red")
         }
         else {
             setIcon("heart-outline")
+            setColor("md hydrated")
         }
     }
+    
 
     return (
       <div class="post">
@@ -44,7 +49,7 @@ export default function Posts () {
         <div class="fundo">
           <div class="acoes">
             <div>
-              <ion-icon name={icon} onClick={changeIcon}></ion-icon>
+              <ion-icon name={icon}  class={color} onClick={changeIcon}></ion-icon>
               <ion-icon name="chatbubble-outline"></ion-icon>
               <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
