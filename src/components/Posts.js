@@ -20,6 +20,13 @@ export default function Posts () {
     const [icon, setIcon] = React.useState("heart-outline")
     const [color, setColor] = React.useState("md hydrated")
     
+    function likePost () {
+      if (icon === "heart-outline") {
+        setIcon("heart")
+        setColor("md hydrated red")
+    }
+    }
+
     function changeIcon () {
         if (icon === "heart-outline") {
             setIcon("heart")
@@ -44,7 +51,7 @@ export default function Posts () {
           </div>
         </div>
         <div class="conteudo">
-          <img src={props.content} onClick={changeIcon} />
+          <img src={props.content} onClick={likePost} />
         </div>
         <div class="fundo">
           <div class="acoes">
