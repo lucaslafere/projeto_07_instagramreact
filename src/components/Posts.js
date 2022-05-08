@@ -1,4 +1,9 @@
+import React from 'react'
+
+
 const postArr = [{userImg: "assets/img/meowed.svg", user: "meowed", content: "assets/img/gato-telefone.svg", commentImg: "assets/img/respondeai.svg", topComment: "respondeai", others: "outras 101.523 pessoas"},{userImg: "assets/img/barked.svg", user: "barked", content: "assets/img/dog.svg", commentImg: "assets/img/adorable_animals.svg", topComment: "adorable_animals", others: "outras 99.159 pessoas"}]
+
+
 
 export default function Posts () {
     return (
@@ -11,6 +16,17 @@ export default function Posts () {
 
   
   function Post (props) {
+
+    const [icon, setIcon] = React.useState("heart-outline")
+    function changeIcon () {
+        if (icon === "heart-outline") {
+            setIcon("heart")
+        }
+        else {
+            setIcon("heart-outline")
+        }
+    }
+
     return (
       <div class="post">
         <div class="topo">
@@ -28,7 +44,7 @@ export default function Posts () {
         <div class="fundo">
           <div class="acoes">
             <div>
-              <ion-icon name="heart-outline"></ion-icon>
+              <ion-icon name={icon} onClick={changeIcon}></ion-icon>
               <ion-icon name="chatbubble-outline"></ion-icon>
               <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
