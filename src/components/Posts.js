@@ -44,7 +44,7 @@ export default function Posts () {
           </div>
         </div>
         <div class="conteudo">
-          <img src={props.content} />
+          <img src={props.content} onClick={changeIcon} />
         </div>
         <div class="fundo">
           <div class="acoes">
